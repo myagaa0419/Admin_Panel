@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ноорог нийтлэлүүд | ЮН самбар</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='yun-logo.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{{ url_for('dashboard') }}">
+      <img class="header-logo" src="{{ url_for('static', filename='yun-logo.svg') }}" alt="ЮН брэнд">
+      <span>Захиргааны самбар</span>
+    </a>
+    <div class="account">
+      <span>{{ user_email }}</span>
+      <form method="post" action="{{ url_for('logout') }}">
+        <button class="logout-button" type="submit">Гарах</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="page-heading">
+      <div>
+        <p class="eyebrow">АГУУЛГА</p>
+        <h1>Ноорог нийтлэлүүд</h1>
+        <p class="muted">Нийтлэхээр бэлтгэж буй нийтлэлүүдийн жагсаалт.</p>
+      </div>
+      <span class="count">{{ drafts|length }} ноорог</span>
+    </div>
+
+    {% if error %}
+      <p class="notice error" role="alert">{{ error }}</p>
+    {% elif drafts %}
+      <section class="draft-list" aria-label="Ноорог нийтлэлийн жагсаалт">
+        {% for draft in drafts %}
+          <article class="draft-card">
+            <div class="draft-header">
+              <h2>{{ draft.title }}</h2>
+              <span class="status">
+                {% if draft.status == 'draft' %}Ноорог{% elif draft.status == 'published' %}Нийтэлсэн{% elif draft.status == 'pending' %}Хүлээгдэж байна{% else %}Бусад төлөв{% endif %}
+              </span>
+            </div>
+            <p class="draft-content">{{ draft.content }}</p>
+            <p class="draft-date">Үүсгэсэн: {{ draft.created_at }}</p>
+          </article>
+        {% endfor %}
+      </section>
+    {% else %}
+      <section class="empty-state">
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <h2>Одоогоор ноорог нийтлэл алга</h2>
+        <p class="muted">Шинэ ноорог нэмэхэд энд харагдана.</p>
+      </section>
+    {% endif %}
+  </main>
+</body>
+</html>

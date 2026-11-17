@@ -1,0 +1,389 @@
+:root {
+  color-scheme: light;
+  --plum: #68465f;
+  --plum-deep: #53364d;
+  --pink: #e8c9d3;
+  --eucalyptus: #7d9b8a;
+  --silk: #fff9f6;
+  --ink: #392f37;
+  --muted: #81747d;
+  --line: #eee3e6;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--silk);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgb(232 201 211 / 28%), transparent 36%),
+    radial-gradient(ellipse at 88% 82%, rgb(125 155 138 / 13%), transparent 34%),
+    var(--silk);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
+.login-layout {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.login-card {
+  width: min(100%, 450px);
+  padding: 43px 48px 39px;
+  border: 1px solid rgb(104 70 95 / 10%);
+  border-radius: 4px;
+  background: rgb(255 249 246 / 94%);
+  box-shadow: 0 24px 70px rgb(75 48 68 / 10%);
+}
+
+.login-logo {
+  display: block;
+  width: 137px;
+  height: auto;
+  margin: 0 auto 27px;
+}
+
+.eyebrow {
+  margin: 0 0 11px;
+  color: var(--eucalyptus);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .19em;
+}
+
+.login-card .eyebrow,
+.login-card h1,
+.login-card > .muted {
+  text-align: center;
+}
+
+.login-card h1,
+.page-heading h1 {
+  margin-bottom: 9px;
+  color: var(--plum);
+  font-size: 38px;
+  line-height: 1.05;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.login-card form {
+  display: grid;
+  gap: 10px;
+  margin-top: 29px;
+}
+
+label {
+  margin-top: 7px;
+  color: var(--plum-deep);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #fffdfb;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+input::placeholder {
+  color: #aa9da5;
+}
+
+input:focus {
+  border-color: var(--eucalyptus);
+  box-shadow: 0 0 0 3px rgb(125 155 138 / 15%);
+}
+
+button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  transition: background-color .18s ease, border-color .18s ease;
+}
+
+.login-card form button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 13px;
+  padding: 14px 16px;
+  border: 1px solid var(--plum);
+  border-radius: 2px;
+  background: var(--plum);
+  color: var(--silk);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-card form button:hover {
+  border-color: var(--plum-deep);
+  background: var(--plum-deep);
+}
+
+.secure-note {
+  margin: 21px 0 0;
+  color: #9a8d95;
+  font-size: 11px;
+  text-align: center;
+}
+
+.notice {
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border: 1px solid rgb(104 70 95 / 16%);
+  border-radius: 2px;
+  background: rgb(232 201 211 / 22%);
+  color: var(--plum-deep);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.notice.error {
+  border-color: #e8c9d3;
+  background: #fff1f2;
+  color: #75475b;
+}
+
+.topbar {
+  min-height: 83px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px max(28px, calc((100% - 1080px) / 2));
+  border-bottom: 1px solid var(--line);
+  background: rgb(255 249 246 / 93%);
+}
+
+.brand,
+.account {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 18px;
+  color: var(--plum);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header-logo {
+  display: block;
+  width: 72px;
+  height: auto;
+}
+
+.account {
+  gap: 17px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.account form {
+  margin: 0;
+}
+
+.logout-button {
+  padding: 9px 14px;
+  border: 1px solid var(--pink);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--plum);
+  font-size: 11px;
+}
+
+.logout-button:hover {
+  border-color: var(--plum);
+  background: rgb(232 201 211 / 22%);
+}
+
+.dashboard {
+  width: min(100% - 40px, 920px);
+  margin: 0 auto;
+  padding: 57px 0 80px;
+}
+
+.page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.page-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.page-heading h1 {
+  margin-bottom: 8px;
+}
+
+.page-heading .muted {
+  margin-bottom: 0;
+}
+
+.count {
+  flex: none;
+  margin-bottom: 5px;
+  padding: 8px 12px;
+  border: 1px solid var(--pink);
+  background: rgb(232 201 211 / 20%);
+  color: var(--plum);
+  font-size: 11px;
+}
+
+.draft-list {
+  display: grid;
+  gap: 13px;
+}
+
+.draft-card {
+  padding: 23px 25px 19px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--eucalyptus);
+  background: rgb(255 255 255 / 79%);
+  box-shadow: 0 7px 22px rgb(75 48 68 / 4%);
+}
+
+.draft-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.draft-header h2 {
+  margin-bottom: 12px;
+  color: var(--plum);
+  font-size: 25px;
+  line-height: 1.15;
+}
+
+.status {
+  flex: none;
+  padding: 6px 9px;
+  background: rgb(125 155 138 / 15%);
+  color: #526e5d;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.draft-content {
+  margin-bottom: 17px;
+  color: #625860;
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.draft-date {
+  margin-bottom: 0;
+  color: #9a8d95;
+  font-size: 10px;
+}
+
+.empty-state {
+  padding: 56px 24px;
+  border: 1px dashed var(--pink);
+  background: rgb(255 255 255 / 44%);
+  text-align: center;
+}
+
+.empty-state h2 {
+  margin: 13px 0 8px;
+  color: var(--plum);
+  font-size: 26px;
+}
+
+.empty-state .muted {
+  margin-bottom: 0;
+}
+
+.empty-icon {
+  color: var(--eucalyptus);
+  font-size: 25px;
+}
+
+@media (max-width: 560px) {
+  .login-card {
+    padding: 36px 25px 31px;
+  }
+
+  .topbar {
+    min-height: 72px;
+    padding: 11px 16px;
+  }
+
+  .brand {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .header-logo {
+    width: 57px;
+  }
+
+  .account {
+    gap: 9px;
+  }
+
+  .account > span {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dashboard {
+    width: min(100% - 32px, 920px);
+    padding-top: 40px;
+  }
+
+  .page-heading {
+    align-items: flex-start;
+  }
+
+  .page-heading h1 {
+    font-size: 33px;
+  }
+
+  .draft-card {
+    padding: 19px 18px 16px;
+  }
+}
